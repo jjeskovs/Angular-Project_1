@@ -1,9 +1,9 @@
-<app-header (featureSelected)="onNavigate($event)"></app-header>
+<app-header (featureSelected)="onNavigate($event)"></app-header> <!-- here we are listening to the click event in th NAV component. Once we hear it, we get the string sent, and we trigger the onNavigate method. -->
 <div class="container">
   <div class="row">
     <div class="col-md-12">
       
-      <app-recipes *ngIf = "loadedFeature === 'recipe'"></app-recipes>
+      <app-recipes *ngIf = "loadedFeature === 'recipe'"></app-recipes> <!-- if we get the string 'recipe' load it  -->
       <app-shopping-list *ngIf = "loadedFeature !== 'recipe'">></app-shopping-list>
     </div>
   </div>
