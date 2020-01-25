@@ -1,5 +1,6 @@
-import { Ingredient } from '../shared/ingredient.model'
 import { EventEmitter } from '@angular/core';
+
+import { Ingredient } from '../shared/ingredient.model'
 
 export class ShoppingListService {
     ingredientsChanged = new EventEmitter<Ingredient[]>(); // in order to add the new ingredient to the array, we created this event emitter.
@@ -18,4 +19,9 @@ export class ShoppingListService {
         this.ingredients.push(ingredient);
         this.ingredientsChanged.emit(this.ingredients.slice())
     }
-}
+
+    addIngredients(ingredients: Ingredient[]){
+        this.ingredients.push(... ingredients)  // the spread operator (...) that turns an array of elements into the list of elements. 
+        this.ingredientsChanged.emit(this.ingredients.slice()) // the send the copy of the array
+    }
+} 
